@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object BrainFuckGenerator {
+object BrainfuckGenerator {
   private def moveCounter(target: Int, counter: Int, counters: List[Int]): (String, Int) = {
     val (_, next) =
       (counters map ((value: Int) =>
@@ -51,7 +51,8 @@ object BrainFuckGenerator {
   }
 
   @tailrec
-  private def generateProgram(targets: List[Int], counter: Int, counters: List[Int], instructions: String, delimiter: String = ""): String = {
+  private def generateProgram(targets: List[Int], counter: Int, counters: List[Int],
+                              instructions: String, delimiter: String = ""): String = {
     targets match {
       case target :: remainder =>
         val (moveInstruction, newCounter) = moveCounter (target, counter, counters)
@@ -79,6 +80,6 @@ object BrainFuckGenerator {
 
 object BFGen extends App {
   val input = io.Source.stdin.getLines.toList.mkString("\n")
-  val output = BrainFuckGenerator.generate(input)
+  val output = BrainfuckGenerator.generate(input)
   println(output)
 }
