@@ -58,7 +58,7 @@ object BrainfuckGenerator {
         val (moveInstruction, newCounter) = moveCounter (target, counter, counters)
         val (updateInstuction, newCounters) = changeCounter (target, newCounter, counters)
         val newInstructions = instructions + moveInstruction + updateInstuction + "." + delimiter
-        generateProgram(remainder, newCounter, newCounters, newInstructions)
+        generateProgram(remainder, newCounter, newCounters, newInstructions, delimiter)
       case Nil => instructions
     }
   }
