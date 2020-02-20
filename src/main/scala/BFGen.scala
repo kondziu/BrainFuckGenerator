@@ -78,7 +78,7 @@ object BrainfuckGenerator {
   }
 }
 
-object BFGen extends App {
+object Main extends App {
   val input = io.Source.stdin.getLines.toList.mkString("\n")
   val output = BrainfuckGenerator.generate(input)
   println(output)
